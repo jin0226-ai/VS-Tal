@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Against Mikhail Tal - The Magician from Riga</title>
+    <meta name="description"
+        content="Challenge the legendary chess champion Mikhail Tal in this immersive chess experience. Experience his aggressive, sacrificial playing style.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Chessboard.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="particles"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="title-icon">♔</span>
+                Mikhail Tal
+                <span class="title-subtitle">The Magician from Riga</span>
+            </h1>
+        </header>
+
+        <!-- Game Area -->
+        <main class="game-area">
+            <!-- Left Panel - Tal Info -->
+            <aside class="info-panel">
+                <div class="tal-portrait">
+                    <div class="portrait-frame">
+                        <div class="portrait-placeholder">
+                            <span class="portrait-icon">♚</span>
+                        </div>
+                    </div>
+                    <div class="tal-title">
+                        <h2>Mikhail Tal</h2>
+                        <p class="tal-years">1936 - 1992</p>
+                        <p class="tal-rank">8th World Chess Champion</p>
+                    </div>
+                </div>
+
+                <div class="tal-quote">
+                    <p>"There are two types of sacrifices: correct ones, and mine."</p>
+                </div>
+
+                <div class="tal-stats">
+                    <div class="stat">
+                        <span class="stat-value">2705</span>
+                        <span class="stat-label">Peak Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">1960</span>
+                        <span class="stat-label">World Champion</span>
+                    </div>
+                </div>
+
+                <div class="style-traits">
+                    <h3>Playing Style</h3>
+                    <ul>
+                        <li><span class="trait-icon">⚔️</span> Aggressive Attacks</li>
+                        <li><span class="trait-icon">🎭</span> Brilliant Sacrifices</li>
+                        <li><span class="trait-icon">🔮</span> Intuitive Play</li>
+                        <li><span class="trait-icon">⚡</span> Complex Combinations</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Center - Chess Board -->
+            <div class="board-container">
+                <!-- Difficulty Selection (shown before game starts) -->
+                <div id="difficulty-selection" class="difficulty-selection">
+                    <h2>Choose Your Challenge</h2>
+                    <p class="difficulty-subtitle">How strong should Tal play?</p>
+
+                    <div class="difficulty-options">
+                        <button class="difficulty-btn" data-level="beginner" data-rating="800">
+                            <span class="diff-icon">🌱</span>
+                            <span class="diff-name">Beginner</span>
+                            <span class="diff-rating">~800 ELO</span>
+                            <span class="diff-desc">Learning the style</span>
+                        </button>
+
+                        <button class="difficulty-btn" data-level="intermediate" data-rating="1200">
+                            <span class="diff-icon">🎯</span>
+                            <span class="diff-name">Intermediate</span>
+                            <span class="diff-rating">~1200 ELO</span>
+                            <span class="diff-desc">Showing some tricks</span>
+                        </button>
+
+                        <button class="difficulty-btn" data-level="advanced" data-rating="1600">
+                            <span class="diff-icon">⚔️</span>
+                            <span class="diff-name">Advanced</span>
+                            <span class="diff-rating">~1600 ELO</span>
+                            <span class="diff-desc">Aggressive play</span>
+                        </button>
+
+                        <button class="difficulty-btn" data-level="master" data-rating="2000">
+                            <span class="diff-icon">👑</span>
+                            <span class="diff-name">Master</span>
+                            <span class="diff-rating">~2000 ELO</span>
+                            <span class="diff-desc">Full tactical power</span>
+                        </button>
+
+                        <button class="difficulty-btn legendary" data-level="legend" data-rating="2700">
+                            <span class="diff-icon">🔮</span>
+                            <span class="diff-name">Legend</span>
+                            <span class="diff-rating">~2700 ELO</span>
+                            <span class="diff-desc">Prime Tal unleashed</span>
+                        </button>
+                    </div>
+
+                    <div class="color-selection">
+                        <p>Play as:</p>
+                        <div class="color-buttons">
+                            <button class="color-btn active" data-color="white">
+                                <span class="piece-icon white">♔</span> White
+                            </button>
+                            <button class="color-btn" data-color="black">
+                                <span class="piece-icon black">♚</span> Black
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="time-selection">
+                        <p>Time Control:</p>
+                        <div class="time-buttons">
+                            <button class="time-btn" data-time="bullet">
+                                <span class="time-icon">⚡</span> 3 min
+                            </button>
+                            <button class="time-btn" data-time="blitz">
+                                <span class="time-icon">🔥</span> 5 min
+                            </button>
+                            <button class="time-btn active" data-time="rapid">
+                                <span class="time-icon">⏱️</span> 10 min
+                            </button>
+                            <button class="time-btn" data-time="classical">
+                                <span class="time-icon">🏛️</span> 15+10
+                            </button>
+                            <button class="time-btn" data-time="unlimited">
+                                <span class="time-icon">∞</span> No limit
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="start-game-btn" class="start-btn">
+                        <span>Challenge Tal</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Chess Board (hidden until game starts) -->
+                <div id="game-container" class="game-container hidden">
+                    <div class="player-bar opponent">
+                        <div class="player-info">
+                            <span class="player-icon">♚</span>
+                            <span class="player-name">Mikhail Tal</span>
+                            <span id="tal-rating" class="player-rating"></span>
+                        </div>
+                        <div id="opponent-timer" class="timer">10:00</div>
+                    </div>
+
+                    <div id="board" class="chess-board"></div>
+
+                    <div class="player-bar player">
+                        <div class="player-info">
+                            <span class="player-icon">♔</span>
+                            <span class="player-name">You</span>
+                        </div>
+                        <div id="player-timer" class="timer">10:00</div>
+                    </div>
+
+                    <div class="game-controls">
+                        <button id="new-game-btn" class="control-btn">
+                            <span>🔄</span> New Game
+                        </button>
+                        <button id="undo-btn" class="control-btn">
+                            <span>↩️</span> Undo
+                        </button>
+                        <button id="flip-btn" class="control-btn">
+                            <span>🔃</span> Flip Board
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Game Info -->
+            <aside class="game-panel">
+                <div class="status-section">
+                    <h3>Game Status</h3>
+                    <div id="game-status" class="status-display">
+                        <span class="status-text">Select difficulty to begin</span>
+                    </div>
+                </div>
+
+                <div class="moves-section">
+                    <h3>Move History</h3>
+                    <div id="move-history" class="move-history">
+                        <div class="no-moves">No moves yet</div>
+                    </div>
+                </div>
+
+                <div class="captured-section">
+                    <h3>Captured Pieces</h3>
+                    <div class="captured-pieces">
+                        <div class="captured-row">
+                            <span class="captured-label">Tal:</span>
+                            <span id="captured-by-tal" class="captured-list"></span>
+                        </div>
+                        <div class="captured-row">
+                            <span class="captured-label">You:</span>
+                            <span id="captured-by-player" class="captured-list"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evaluation-section">
+                    <h3>Position</h3>
+                    <div class="eval-bar-container">
+                        <div id="eval-bar" class="eval-bar">
+                            <div id="eval-white" class="eval-white" style="height: 50%"></div>
+                        </div>
+                        <div id="eval-text" class="eval-text">0.0</div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <div id="modal-icon" class="modal-icon">♚</div>
+                <h2 id="modal-title">Game Over</h2>
+                <p id="modal-message"></p>
+                <div class="modal-buttons">
+                    <button id="play-again-btn" class="modal-btn primary">Play Again</button>
+                    <button id="change-difficulty-btn" class="modal-btn">Change Difficulty</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Tal is thinking...</p>
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/tal-openings.js"></script>
+    <script src="js/difficulty.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/tal-engine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
