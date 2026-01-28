@@ -10,36 +10,36 @@
     --bg-secondary: #12121a;
     --bg-tertiary: #1a1a25;
     --bg-card: rgba(26, 26, 37, 0.8);
-    
+
     --accent-primary: #8b5cf6;
     --accent-secondary: #a78bfa;
     --accent-glow: rgba(139, 92, 246, 0.4);
-    
+
     --gold: #fbbf24;
     --gold-dim: #b8860b;
-    
+
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
-    
+
     --success: #22c55e;
     --danger: #ef4444;
     --warning: #f59e0b;
-    
+
     --board-light: #e8dcc4;
     --board-dark: #7d945d;
     --board-highlight: rgba(139, 92, 246, 0.5);
-    
+
     /* Typography */
     --font-display: 'Cinzel', serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Spacing */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
-    
+
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -48,7 +48,9 @@
 }
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -106,8 +108,15 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(30px, 30px) scale(1.1); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
 }
 
 /* Container */
@@ -163,7 +172,8 @@ body {
 }
 
 /* Panels */
-.info-panel, .game-panel {
+.info-panel,
+.game-panel {
     background: var(--bg-card);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -740,6 +750,7 @@ body {
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -830,7 +841,9 @@ body {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-content p {
@@ -868,7 +881,7 @@ body {
         grid-template-columns: 250px 1fr 250px;
         gap: 20px;
     }
-    
+
     .chess-board {
         width: 480px;
         height: 480px;
@@ -879,15 +892,15 @@ body {
     .game-area {
         grid-template-columns: 1fr;
     }
-    
+
     .info-panel {
         display: none;
     }
-    
+
     .game-panel {
         order: 2;
     }
-    
+
     .board-container {
         order: 1;
     }
@@ -900,23 +913,24 @@ body {
         height: auto;
         aspect-ratio: 1;
     }
-    
+
     .difficulty-selection {
         padding: 24px;
     }
-    
+
     .difficulty-btn {
         grid-template-columns: auto 1fr;
     }
-    
-    .diff-rating, .diff-desc {
+
+    .diff-rating,
+    .diff-desc {
         display: none;
     }
-    
+
     .time-buttons {
         flex-wrap: wrap;
     }
-    
+
     .time-btn {
         flex: 1 1 45%;
     }
@@ -1008,21 +1022,179 @@ body {
 }
 
 @keyframes pulse-warning {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
     }
+
     50% {
         box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
     }
 }
 
 @keyframes pulse-danger {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
         transform: scale(1);
     }
+
     50% {
         box-shadow: 0 0 25px rgba(239, 68, 68, 0.8);
         transform: scale(1.02);
+    }
+}
+
+/* ========================================
+   Cookie Consent Banner
+======================================== */
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
+    z-index: 10000;
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cookie-content p {
+    color: var(--text-secondary);
+    margin: 0;
+    flex: 1;
+    min-width: 250px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 10px 24px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cookie-btn.accept {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    border: none;
+}
+
+.cookie-btn.accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px var(--accent-glow);
+}
+
+.cookie-btn.learn-more {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+}
+
+.cookie-btn.learn-more:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+/* ========================================
+   Site Footer
+======================================== */
+
+.site-footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--accent-primary);
+}
+
+.footer-copyright {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-nav {
+        gap: 20px;
     }
 }

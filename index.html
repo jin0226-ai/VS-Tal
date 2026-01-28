@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Against Mikhail Tal - The Magician from Riga</title>
+    <title>VS-Tal Chess - Play Against Mikhail Tal AI</title>
     <meta name="description"
-        content="Challenge the legendary chess champion Mikhail Tal in this immersive chess experience. Experience his aggressive, sacrificial playing style.">
+        content="Challenge the legendary chess champion Mikhail Tal in this free online chess game. Experience his aggressive, sacrificial playing style with our AI opponent.">
+    <meta name="keywords"
+        content="chess, Mikhail Tal, chess AI, online chess, chess game, Tal style, Magician from Riga">
+    <meta name="author" content="VS-Tal Chess">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VS-Tal Chess - Play Against Mikhail Tal AI">
+    <meta property="og:description"
+        content="Challenge the legendary chess champion Mikhail Tal in this free online chess game.">
+    <meta property="og:site_name" content="VS-Tal Chess">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VS-Tal Chess - Play Against Mikhail Tal AI">
+    <meta name="twitter:description"
+        content="Challenge the legendary chess champion Mikhail Tal in this free online chess game.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +37,24 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google AdSense - Replace with your actual AdSense code after approval -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your experience and display relevant advertisements. By continuing to use this
+                site, you consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn accept">Accept All</button>
+                <a href="privacy.html" class="cookie-btn learn-more">Learn More</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Background Effects -->
     <div class="bg-effects">
         <div class="glow glow-1"></div>
@@ -266,6 +298,22 @@
         </div>
     </div>
 
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">♚</span>
+                <span>VS-Tal Chess</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+            <p class="footer-copyright">&copy; 2026 VS-Tal Chess. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!-- Libraries -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
@@ -277,6 +325,23 @@
     <script src="js/timer.js"></script>
     <script src="js/tal-engine.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- Cookie Consent Script -->
+    <script>
+        (function () {
+            const consent = localStorage.getItem('cookieConsent');
+            const banner = document.getElementById('cookie-consent');
+
+            if (consent === 'accepted') {
+                banner.style.display = 'none';
+            }
+
+            document.getElementById('accept-cookies').addEventListener('click', function () {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.style.display = 'none';
+            });
+        })();
+    </script>
 </body>
 
 </html>
